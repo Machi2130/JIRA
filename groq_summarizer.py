@@ -95,7 +95,7 @@ async def summarize_ticket(description: str, comments: list[str], api_key: str) 
 
     try:
         client = _get_client(api_key)
-        logger.info("summarize_ticket: calling Groq API (model=llama-3.3-70b-versatile)")
+        logger.info("summarize_ticket: calling Groq API (model=qwen/qwen3.6-27b)")
         response = await client.chat.completions.create(
             model="qwen/qwen3.6-27b",
             messages=[
