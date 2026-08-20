@@ -14,6 +14,7 @@ _VALID_NL_ACTIONS = {
     "get_ticket", "get_comments", "get_transitions", "get_tickets", "get_due_soon",
     "get_report", "get_workflow", "transition", "assign", "set_priority", "set_due",
     "log_work", "watch", "unwatch", "set_story_points", "search", "add_comment", "dev_task", "unknown",
+    "add_label", "remove_label", "link", "create", "get_help",
 }
 
 
@@ -254,6 +255,25 @@ class JiraTelegramBot:
             if not query:
                 return {"action": "unknown"}
             normalized["query"] = query
+        elif action == "create":
+            project = str(cmd.get("project", "") or "").strip().upper()
+            title = str(cmd.get("title", "") or "").strip()
+            if not project or not title:
+                return {"action": "unknown"}
+            normalized["project"] = project
+            normalized["title"] = title
+        elif action in {"add_label", "remove_label"}:
+            label = str(cmd.get("label", "") or "").strip()
+            if not label:
+                return {"action": "unknown"}
+            normalized["label"] = label
+        elif action == "link":
+            link_type = str(cmd.get("link_type", "") or "").strip()
+            key2 = str(cmd.get("key2", "") or "").strip().upper()
+            if not link_type or not key2:
+                return {"action": "unknown"}
+            normalized["link_type"] = link_type
+            normalized["key2"] = key2
 
         if action in {
             "get_ticket", "get_comments", "get_transitions", "get_workflow",
@@ -265,6 +285,57 @@ class JiraTelegramBot:
         return normalized
 
     async def _parse_with_context(self, chat_id: int, text: str) -> dict:
+        parts = text.strip().split(maxsplit=2)
+        command = parts[0].lower() if parts else ""
+        if command == "help":
+            return {"action": "get_help"}
+        if command in {"tickets", "due"} and len(parts) == 1:
+            text = "show my tickets" if command == "tickets" else "tickets due soon"
+        elif command == "ticket" and len(parts) >= 2:
+            text = parts[1]
+        elif command == "comments" and len(parts) >= 2:
+            text = f"show comments for {parts[1]}"
+        elif command == "transitions" and len(parts) >= 2:
+            text = f"available statuses for {parts[1]}"
+        elif command == "status" and len(parts) >= 3:
+            text = f"move {parts[1]} to {parts[2]}"
+        elif command == "search" and len(parts) >= 2:
+            return {"action": "search", "query": parts[1]}
+        elif command == "assign" and len(parts) >= 3:
+            return {"action": "assign", "key": parts[1].upper(), "name": parts[2]}
+        elif command == "priority" and len(parts) >= 3:
+            return {"action": "set_priority", "key": parts[1].upper(), "priority": parts[2]}
+        elif command == "setdue" and len(parts) >= 3:
+            return {"action": "set_due", "key": parts[1].upper(), "date": parts[2]}
+        elif command == "log" and len(parts) >= 3:
+            return {"action": "log_work", "key": parts[1].upper(), "time_spent": parts[2]}
+        elif command in {"watch", "unwatch"} and len(parts) >= 2:
+            return {"action": command, "key": parts[1].upper()}
+        elif command == "sp" and len(parts) >= 3:
+            try:
+                points = float(parts[2])
+            except ValueError:
+                return {"action": "unknown"}
+            return {"action": "set_story_points", "key": parts[1].upper(), "story_points": points}
+        elif command == "comment" and len(parts) >= 3:
+            return {"action": "add_comment", "key": parts[1].upper(), "body": parts[2]}
+        elif command == "create" and len(parts) >= 3:
+            return {"action": "create", "project": parts[1].upper(), "title": parts[2]}
+        elif command == "label" and len(parts) >= 3:
+            action = "remove_label" if parts[2].lower() == "remove" else "add_label"
+            label_parts = parts[2].split(maxsplit=1)
+            if len(label_parts) == 2:
+                return {"action": action, "key": parts[1].upper(), "label": label_parts[1]}
+        elif command == "link" and len(parts) >= 3:
+            link_parts = parts[2].split()
+            if len(link_parts) >= 2:
+                return {
+                    "action": "link",
+                    "key": parts[1].upper(),
+                    "link_type": " ".join(link_parts[:-1]),
+                    "key2": link_parts[-1].upper(),
+                }
+
         cmd = nl_handler.parse(text, self._cfg.default_project_key)
         normalized = self._normalize_nl_command(cmd)
         if normalized.get("action") != "unknown":
@@ -657,36 +728,38 @@ class JiraTelegramBot:
             return
         help_text = (
             "*Jira Bot — Full Command Reference*\n\n"
+            "Type commands with or without a slash. Plain text examples:\n"
+            "help, tickets, due, ticket STO\\-123, status STO\\-123 In Progress\n\n"
             "*View:*\n"
-            "/tickets — your open tickets\n"
-            "/ticket PROJ\\-123 — ticket details\n"
-            "/comments PROJ\\-123 — view comments\n"
-            "/transitions PROJ\\-123 — available statuses\n"
-            "/due — tickets due in 48h\n"
-            "/search keyword — search tickets\n\n"
+            "tickets — your open tickets\n"
+            "ticket PROJ\\-123 — ticket details\n"
+            "comments PROJ\\-123 — view comments\n"
+            "transitions PROJ\\-123 — available statuses\n"
+            "due — tickets due in 48h\n"
+            "search keyword — search tickets\n\n"
             "*Actions:*\n"
-            "/status PROJ\\-123 In Progress\n"
-            "/assign PROJ\\-123 John\n"
-            "/priority PROJ\\-123 High\n"
-            "/setdue PROJ\\-123 2026\\-05\\-20\n"
-            "/label PROJ\\-123 add backend\n"
-            "/label PROJ\\-123 remove backend\n"
-            "/link PROJ\\-123 blocks PROJ\\-456\n"
-            "/log PROJ\\-123 2h\n"
-            "/sp PROJ\\-123 5\n"
-            "/watch PROJ\\-123\n"
-            "/unwatch PROJ\\-123\n\n"
+            "status PROJ\\-123 In Progress\n"
+            "assign PROJ\\-123 John\n"
+            "priority PROJ\\-123 High\n"
+            "setdue PROJ\\-123 2026\\-05\\-20\n"
+            "label PROJ\\-123 add backend\n"
+            "label PROJ\\-123 remove backend\n"
+            "link PROJ\\-123 blocks PROJ\\-456\n"
+            "log PROJ\\-123 2h\n"
+            "sp PROJ\\-123 5\n"
+            "watch PROJ\\-123\n"
+            "unwatch PROJ\\-123\n\n"
             "*Comments \\(only when you ask\\):*\n"
-            "/comment PROJ\\-123 your text\n"
-            "/comment PROJ\\-123 @John please review\n\n"
+            "comment PROJ\\-123 your text\n"
+            "comment PROJ\\-123 @John please review\n\n"
             "*Create:*\n"
-            "/create PROJ Ticket title\n\n"
+            "create PROJ Ticket title\n\n"
             "*Reports:*\n"
-            "/report — EOD summary now\n\n"
+            "report — EOD summary now\n\n"
             "*Dev tasks \\(runs Claude Code on your PC\\):*\n"
-            "/claude fix the bug in STO\\-54171\n"
-            "/claude implement day 1 of STO\\-53566\n"
-            "/claude write unit tests for the cart logic"
+            "claude fix the bug in STO\\-54171\n"
+            "claude implement day 1 of STO\\-53566\n"
+            "claude write unit tests for the cart logic"
         )
         await update.message.reply_text(help_text, parse_mode="MarkdownV2")
 
@@ -739,6 +812,20 @@ class JiraTelegramBot:
                 self._jira.add_comment(key, body)
                 mention_note = f" (tagged {', '.join(mentions)})" if mentions else ""
                 await self._reply(update, f"Comment added to *{key}*{mention_note}")
+            elif action in {"add_label", "remove_label"}:
+                if action == "add_label":
+                    self._jira.add_label(key, cmd["label"])
+                    message = f"Label *{cmd['label']}* added to *{key}*"
+                else:
+                    self._jira.remove_label(key, cmd["label"])
+                    message = f"Label *{cmd['label']}* removed from *{key}*"
+                await self._reply(update, message)
+            elif action == "link":
+                self._jira.link_tickets(key, cmd["link_type"], cmd["key2"])
+                await self._reply(update, f"*{key}* {cmd['link_type']} *{cmd['key2']}*")
+            elif action == "create":
+                result = self._jira.create_ticket(cmd["project"], cmd["title"])
+                await self._reply(update, f"Created *{result['key']}: {cmd['title']}")
             elif action == "get_transitions":
                 transitions = self._jira.get_transitions(key)
                 await self._reply(update, format_transitions(key, transitions))
@@ -800,8 +887,10 @@ class JiraTelegramBot:
                     project_key=self._cfg.default_project_key,
                 )
                 await self._reply(update, report)
+            elif action == "get_help":
+                await self._cmd_help(update, ctx)
             else:
-                await self._reply(update, "Didn't understand that. Try /help for available commands.")
+                await self._reply(update, "Didn't understand that. Type help to see available commands.")
         except ValueError as e:
             logger.warning("NL action failed: %s", e)
             msg = str(e)
