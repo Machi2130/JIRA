@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>My Jira Report</title>
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --card: #fffdf8;
+    --ink: #26211d;
+    --sub: #6f655b;
+    --line: #ddd5c7;
+    --accent: #96522c;
+    --accent-soft: #efe0d1;
+    --warn: #b24a36;
+    --ok: #4c7656;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: radial-gradient(circle at top, #fbf8f2 0%, var(--bg) 50%, #ebe4d8 100%);
+    color: var(--ink);
+    font-family: "Segoe UI", Arial, sans-serif;
+    padding: 24px 16px 48px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  h1 { margin: 0 0 6px; font-size: 2rem; }
+  .meta { color: var(--sub); }
+  .actions { display: flex; gap: 10px; }
+  button {
+    border: 1px solid var(--line);
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  button:disabled { opacity: 0.7; cursor: wait; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .card, .panel {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 10px 24px rgba(38, 33, 29, 0.05);
+  }
+  .card { padding: 16px; }
+  .label {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--sub);
+    font-size: 0.75rem;
+  }
+  .value {
+    margin-top: 6px;
+    font-size: 1.9rem;
+    font-weight: 700;
+  }
+  .panel { overflow: hidden; margin-bottom: 16px; }
+  .panel-head {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .panel-head h2 { margin: 0; font-size: 1.05rem; }
+  .panel-head .hint { color: var(--sub); font-size: 0.9rem; }
+  .list { padding: 0; margin: 0; list-style: none; }
+  .row {
+    padding: 14px 18px;
+    border-top: 1px solid var(--line);
+  }
+  .row:first-child { border-top: 0; }
+  .row-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  .ticket {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .ticket:hover { color: var(--accent); }
+  .summary { margin-top: 6px; }
+  .chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .comments {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line);
+  }
+  .comment {
+    padding: 10px 0;
+  }
+  .comment + .comment {
+    border-top: 1px solid #eee6db;
+  }
+  .comment-meta {
+    color: var(--sub);
+    font-size: 0.82rem;
+    margin-bottom: 4px;
+  }
+  .chip {
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 0.82rem;
+    background: #f3ede3;
+    color: var(--sub);
+  }
+  .chip.warn { color: var(--warn); background: #f8e2dd; }
+  .chip.ok { color: var(--ok); background: #dfece3; }
+  .status-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 18px;
+  }
+  .empty {
+    padding: 18px;
+    color: var(--sub);
+  }
+  .error {
+    color: #fff;
+    background: var(--warn);
+    padding: 12px 14px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    display: none;
+  }
+  @media (max-width: 640px) {
+    h1 { font-size: 1.6rem; }
+    .value { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div>
+      <h1>My Jira Report</h1>
+      <div class="meta">Only your tickets, due dates, and today&rsquo;s activity.</div>
+      <div class="meta" id="updated-at"></div>
+    </div>
+    <div class="actions">
+      <button id="refresh-btn">Refresh</button>
+    </div>
+  </div>
+
+  <div id="error" class="error"></div>
+  <div id="summary" class="grid"></div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <h2>Status Snapshot</h2>
+      <div class="hint">Open tickets grouped by current status</div>
+    </div>
+    <div id="status-counts" class="status-grid"></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <h2>Open Tickets</h2>
+      <div class="hint">Assigned to you with ETA, owners, and top 5 comments</div>
+    </div>
+    <ul id="open-tickets" class="list"></ul>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <h2>Due Soon</h2>
+      <div class="hint">Upcoming deadlines from Jira</div>
+    </div>
+    <ul id="due-soon" class="list"></ul>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <h2>Updated Today</h2>
+      <div class="hint">Your activity since the start of today</div>
+    </div>
+    <ul id="activity-today" class="list"></ul>
+  </div>
+</div>
+
+<script>
+const refreshBtn = document.getElementById("refresh-btn");
+
+function escapeHtml(value) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function renderSummary(report) {
+  document.getElementById("summary").innerHTML = `
+    <div class="card"><div class="label">Open Tickets</div><div class="value">${report.summary.openTickets}</div></div>
+    <div class="card"><div class="label">Due Soon</div><div class="value">${report.summary.dueSoon}</div></div>
+    <div class="card"><div class="label">Updated Today</div><div class="value">${report.summary.updatedToday}</div></div>
+    <div class="card"><div class="label">Project Context</div><div class="value">${escapeHtml(report.projectKey)}</div></div>
+  `;
+}
+
+function renderStatuses(report) {
+  const entries = Object.entries(report.statusCounts || {});
+  const root = document.getElementById("status-counts");
+  if (!entries.length) {
+    root.innerHTML = `<div class="empty">No open tickets right now.</div>`;
+    return;
+  }
+  root.innerHTML = entries
+    .sort((a, b) => b[1] - a[1])
+    .map(([status, count]) => `<div class="chip ok">${escapeHtml(status)}: ${count}</div>`)
+    .join("");
+}
+
+function renderList(targetId, items, options = {}) {
+  const root = document.getElementById(targetId);
+  if (!items.length) {
+    root.innerHTML = `<li class="empty">${options.emptyText || "Nothing to show."}</li>`;
+    return;
+  }
+  root.innerHTML = items.map((item) => {
+    const dueChip = item.due ? `<span class="chip warn">Due ${escapeHtml(item.due)}</span>` : "";
+    const priorityChip = item.priority ? `<span class="chip">${escapeHtml(item.priority)}</span>` : "";
+    const assigneeChip = item.assignee ? `<span class="chip ok">${escapeHtml(item.assignee)}</span>` : "";
+    const etaChip = item.eta ? `<span class="chip warn">ETA ${escapeHtml(item.eta)}</span>` : "";
+    const developerChip = item.developer ? `<span class="chip">Developer ${escapeHtml(item.developer)}</span>` : "";
+    const qaChip = item.qa ? `<span class="chip">QA ${escapeHtml(item.qa)}</span>` : "";
+    const devopsChip = item.devops ? `<span class="chip">DevOps ${escapeHtml(item.devops)}</span>` : "";
+    const updatedChip = item.updated ? `<span class="chip">Updated ${escapeHtml(new Date(item.updated).toLocaleString())}</span>` : "";
+    const comments = Array.isArray(item.topComments) && item.topComments.length
+      ? `
+        <div class="comments">
+          ${item.topComments.map((comment) => `
+            <div class="comment">
+              <div class="comment-meta">${escapeHtml(comment.author)}${comment.created ? ` • ${escapeHtml(new Date(comment.created).toLocaleString())}` : ""}</div>
+              <div>${escapeHtml(comment.body || "")}</div>
+            </div>
+          `).join("")}
+        </div>
+      `
+      : "";
+    return `
+      <li class="row">
+        <div class="row-top">
+          <a class="ticket" href="${escapeHtml(item.url)}" target="_blank" rel="noopener">${escapeHtml(item.key)}</a>
+          <strong>${escapeHtml(item.status)}</strong>
+        </div>
+        <div class="summary">${escapeHtml(item.summary)}</div>
+        <div class="chips">${priorityChip}${dueChip}${etaChip}${assigneeChip}${developerChip}${qaChip}${devopsChip}${updatedChip}</div>
+        ${comments}
+      </li>
+    `;
+  }).join("");
+}
+
+function setError(message) {
+  const el = document.getElementById("error");
+  el.style.display = message ? "block" : "none";
+  el.textContent = message || "";
+}
+
+function updateTimestamp(iso) {
+  document.getElementById("updated-at").textContent = iso
+    ? `Last refreshed ${new Date(iso).toLocaleString()}`
+    : "";
+}
+
+async function fetchReport(method = "GET") {
+  const endpoint = method === "POST" ? "/api/refresh" : "/api/report";
+  const response = await fetch(endpoint, { method });
+  const data = await response.json();
+  if (!response.ok || !data.ok) {
+    throw new Error(data.error || "Failed to load report");
+  }
+  return data.report;
+}
+
+async function load(method = "GET") {
+  refreshBtn.disabled = true;
+  setError("");
+  try {
+    const report = await fetchReport(method);
+    renderSummary(report);
+    renderStatuses(report);
+    renderList("open-tickets", report.openTickets, { emptyText: "You have no open tickets." });
+    renderList("due-soon", report.dueSoon, { emptyText: "No due-soon tickets found." });
+    renderList("activity-today", report.activityToday, { emptyText: "No Jira activity found for today." });
+    updateTimestamp(report.generatedAt);
+  } catch (error) {
+    setError(error.message || String(error));
+  } finally {
+    refreshBtn.disabled = false;
+  }
+}
+
+refreshBtn.addEventListener("click", () => load("POST"));
+load("GET");
+</script>
+</body>
+</html>

@@ -1,0 +1,1275 @@
+{
+  "tickets": {
+    "STO-48421": {
+      "status": "To Be Done",
+      "last_comment_id": 440580,
+      "due_notified": false,
+      "assignee": "Prathamesh Shivale"
+    },
+    "STO-50495": {
+      "status": "Done",
+      "last_comment_id": 443692,
+      "due_notified": false,
+      "assignee": "Prathamesh Shivale"
+    },
+    "STO-50493": {
+      "status": "UAT",
+      "last_comment_id": 445321,
+      "due_notified": false,
+      "assignee": "Prathamesh Shivale"
+    },
+    "STO-50059": {
+      "status": "Dev In Progress",
+      "last_comment_id": 440741,
+      "due_notified": false,
+      "assignee": "Prathamesh Shivale"
+    },
+    "STO-49482": {
+      "status": "Done",
+      "last_comment_id": 438815,
+      "due_notified": false,
+      "assignee": "Prathamesh Shivale"
+    },
+    "STO-50597": {
+      "status": "Done",
+      "last_comment_id": 440723,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-50284": {
+      "status": "Awaiting Client Response",
+      "last_comment_id": 440746,
+      "assignee": "Baby Kumari"
+    },
+    "STO-49471": {
+      "status": "To Be Done",
+      "last_comment_id": 440777,
+      "assignee": "Anilkumar Yadav"
+    },
+    "STO-48520": {
+      "status": "Done",
+      "last_comment_id": 440750,
+      "assignee": "Shashank H N"
+    },
+    "STO-45284": {
+      "status": "QA - In Progress",
+      "last_comment_id": 440749,
+      "assignee": "balaji.p"
+    },
+    "STO-26225": {
+      "status": "To Be Done",
+      "last_comment_id": 443062,
+      "assignee": "Prathamesh Shivale"
+    },
+    "STO-36478": {
+      "status": "Awaiting Client Response",
+      "last_comment_id": 440747,
+      "assignee": "Siddharth Bansal"
+    },
+    "STO-50565": {
+      "status": "Dev In Progress",
+      "last_comment_id": 440775,
+      "assignee": "Sahil Goel"
+    },
+    "STO-50626": {
+      "status": "Dev In Progress",
+      "last_comment_id": 440700,
+      "assignee": "Anilkumar Yadav"
+    },
+    "STO-50619": {
+      "status": "Dropped",
+      "last_comment_id": 440548,
+      "assignee": "Ravi Rana"
+    },
+    "STO-50627": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Akash Anilkumar"
+    },
+    "STO-48158": {
+      "status": "Deployment - Pending",
+      "last_comment_id": 440734,
+      "assignee": "Vikram Varman"
+    },
+    "STO-50530": {
+      "status": "Done",
+      "last_comment_id": 440558,
+      "assignee": "Shashank H N"
+    },
+    "STO-50621": {
+      "status": "Dev In Progress",
+      "last_comment_id": null,
+      "assignee": "LINITH M"
+    },
+    "STO-49857": {
+      "status": "To Be Done",
+      "last_comment_id": 443892,
+      "assignee": "sweta.sharma"
+    },
+    "STO-48512": {
+      "status": "UAT",
+      "last_comment_id": 440703,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-50352": {
+      "status": "To Be Done",
+      "last_comment_id": 440731,
+      "assignee": "Palani K"
+    },
+    "STO-40013": {
+      "status": "Awaiting Client Response",
+      "last_comment_id": 439960,
+      "assignee": "Onaydatt Kinare"
+    },
+    "STO-50047": {
+      "status": "To Be Done",
+      "last_comment_id": 440697,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-50336": {
+      "status": "Ready for ENGG Sprint",
+      "last_comment_id": 439679,
+      "assignee": "Siddharth Bansal"
+    },
+    "STO-50072": {
+      "status": "To Be Done",
+      "last_comment_id": 440755,
+      "assignee": "Jalaram Choudhary"
+    },
+    "STO-48820": {
+      "status": "Dev In Progress",
+      "last_comment_id": null,
+      "assignee": "sagar c s"
+    },
+    "STO-48826": {
+      "status": "Dev In Progress",
+      "last_comment_id": null,
+      "assignee": "Avinash Kumar Behera"
+    },
+    "STO-48853": {
+      "status": "Dev In Progress",
+      "last_comment_id": null,
+      "assignee": "sagar c s"
+    },
+    "STO-50461": {
+      "status": "To Be Done",
+      "last_comment_id": 444305,
+      "assignee": "LINITH M"
+    },
+    "STO-50152": {
+      "status": "Dropped",
+      "last_comment_id": 444422,
+      "assignee": "Utkarsh Singh"
+    },
+    "STO-50503": {
+      "status": "Dev In Progress",
+      "last_comment_id": null,
+      "assignee": "Bhagyashree Maske"
+    },
+    "STO-43236": {
+      "status": "To Be Done",
+      "last_comment_id": 444290,
+      "assignee": "Rishabh Kumar"
+    },
+    "STO-50188": {
+      "status": "Dev In Progress",
+      "last_comment_id": 440768,
+      "assignee": "Koshal Garg"
+    },
+    "STO-46611": {
+      "status": "UAT",
+      "last_comment_id": 439408,
+      "assignee": "Arun Prajapati"
+    },
+    "STO-49036": {
+      "status": "Dev In Progress",
+      "last_comment_id": 440766,
+      "assignee": "Jalaram Choudhary"
+    },
+    "STO-37281": {
+      "status": "Deployment - Pending",
+      "last_comment_id": 440764,
+      "assignee": "sagar c s"
+    },
+    "STO-37648": {
+      "status": "Dev In Progress",
+      "last_comment_id": 417596,
+      "assignee": "Shubham Kushwaha"
+    },
+    "STO-49406": {
+      "status": "Code Review",
+      "last_comment_id": null,
+      "assignee": "Shubham Kushwaha"
+    },
+    "STO-48054": {
+      "status": "Deployment - Pending",
+      "last_comment_id": 440778,
+      "assignee": "Raja Gopal"
+    },
+    "STO-50580": {
+      "status": "Dev In Progress",
+      "last_comment_id": null,
+      "assignee": "Krish Joshi"
+    },
+    "STO-47415": {
+      "status": "To Be Done",
+      "last_comment_id": 440774,
+      "assignee": "Krish Joshi"
+    },
+    "STO-46211": {
+      "status": "Dropped",
+      "last_comment_id": 440782,
+      "assignee": "Harish Srinivasan"
+    },
+    "STO-50403": {
+      "status": "To Be Done",
+      "last_comment_id": 439268,
+      "assignee": "abhiram"
+    },
+    "STO-35571": {
+      "status": "Ready for ENGG Sprint",
+      "last_comment_id": 440781,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-45967": {
+      "status": "To Be Done",
+      "last_comment_id": 440780,
+      "assignee": "Baby Kumari"
+    },
+    "STO-37339": {
+      "status": "Ready for ENGG Sprint",
+      "last_comment_id": 440779,
+      "assignee": "Rishabh Kumar"
+    },
+    "STO-50606": {
+      "status": "To Be Done",
+      "last_comment_id": 440788,
+      "assignee": "Arun Prajapati"
+    },
+    "STO-49774": {
+      "status": "QA - In Progress",
+      "last_comment_id": 440571,
+      "assignee": "Deepika Batra"
+    },
+    "STO-50507": {
+      "status": "To Be Done",
+      "last_comment_id": 440786,
+      "assignee": "Ravi Rana"
+    },
+    "STO-46291": {
+      "status": "Dropped",
+      "last_comment_id": 440668,
+      "assignee": "Harish Srinivasan"
+    },
+    "STO-28761": {
+      "status": "To Be Done",
+      "last_comment_id": 440784,
+      "assignee": "Anubhaw Gupta"
+    },
+    "STO-51080": {
+      "status": "Done",
+      "last_comment_id": null,
+      "assignee": "LINITH M"
+    },
+    "STO-51056": {
+      "status": "Awaiting Client Response",
+      "last_comment_id": 443898,
+      "assignee": "Anubhaw Gupta"
+    },
+    "STO-50872": {
+      "status": "Dev In Progress",
+      "last_comment_id": 445556,
+      "assignee": "Prathamesh Shivale"
+    },
+    "STO-50995": {
+      "status": "Dev In Progress",
+      "last_comment_id": 444180,
+      "assignee": "Anilkumar Yadav"
+    },
+    "STO-50931": {
+      "status": "Dev In Progress",
+      "last_comment_id": 444179,
+      "assignee": "Sonal Agarwal"
+    },
+    "STO-50613": {
+      "status": "To Be Done",
+      "last_comment_id": 444178,
+      "assignee": "Ravi Rana"
+    },
+    "STO-51102": {
+      "status": "To Be Done",
+      "last_comment_id": 444362,
+      "assignee": "Srikanth Murali"
+    },
+    "STO-49372": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-44649": {
+      "status": "Ready for ENGG Sprint",
+      "last_comment_id": 440147,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-50305": {
+      "status": "Dropped",
+      "last_comment_id": 437871,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-32314": {
+      "status": "To Be Done",
+      "last_comment_id": 420134,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-50203": {
+      "status": "Ready for ENGG Sprint",
+      "last_comment_id": 441308,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-49587": {
+      "status": "Ready for ENGG Sprint",
+      "last_comment_id": 444176,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-46131": {
+      "status": "To Be Done",
+      "last_comment_id": 415889,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-47134": {
+      "status": "To Be Done",
+      "last_comment_id": 434313,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-24690": {
+      "status": "Ready for ENGG Sprint",
+      "last_comment_id": 362337,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-25902": {
+      "status": "Ready for ENGG Sprint",
+      "last_comment_id": 416020,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-34284": {
+      "status": "Ready for ENGG Sprint",
+      "last_comment_id": 408009,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-32574": {
+      "status": "To Be Done",
+      "last_comment_id": 408006,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-38899": {
+      "status": "To Be Done",
+      "last_comment_id": 442755,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-51105": {
+      "status": "Ready for ENGG Sprint",
+      "last_comment_id": null,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-36219": {
+      "status": "QA - In Progress",
+      "last_comment_id": 433002,
+      "assignee": "balaji.p"
+    },
+    "STO-51106": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Gaurav Gupta"
+    },
+    "STO-49827": {
+      "status": "Dev In Progress",
+      "last_comment_id": 444356,
+      "assignee": "Panji Bagaskoro"
+    },
+    "STO-48364": {
+      "status": "UAT",
+      "last_comment_id": 444446,
+      "assignee": "Sachin"
+    },
+    "STO-51096": {
+      "status": "Done",
+      "last_comment_id": 444158,
+      "assignee": "Kuldeep Jaiswal"
+    },
+    "STO-50924": {
+      "status": "Code Review",
+      "last_comment_id": null,
+      "assignee": "Apoorv Jain"
+    },
+    "STO-51088": {
+      "status": "To Be Done",
+      "last_comment_id": 444221,
+      "assignee": "Shyaram RK"
+    },
+    "STO-50908": {
+      "status": "Code Review",
+      "last_comment_id": null,
+      "assignee": "Apoorv Jain"
+    },
+    "STO-50923": {
+      "status": "Code Review",
+      "last_comment_id": null,
+      "assignee": "Apoorv Jain"
+    },
+    "STO-50907": {
+      "status": "Code Review",
+      "last_comment_id": null,
+      "assignee": "Apoorv Jain"
+    },
+    "STO-50904": {
+      "status": "Code Review",
+      "last_comment_id": null,
+      "assignee": "Apoorv Jain"
+    },
+    "STO-51097": {
+      "status": "Done",
+      "last_comment_id": 444220,
+      "assignee": "Baby Kumari"
+    },
+    "STO-51104": {
+      "status": "To Be Done",
+      "last_comment_id": 444431,
+      "assignee": "Anilkumar Yadav"
+    },
+    "STO-21687": {
+      "status": "To Be Done",
+      "last_comment_id": 443975,
+      "assignee": "Vikram Varman"
+    },
+    "STO-51089": {
+      "status": "To Be Done",
+      "last_comment_id": 444345,
+      "assignee": "Sheethal Jagadeesh"
+    },
+    "STO-51109": {
+      "status": "Dev In Progress",
+      "last_comment_id": null,
+      "assignee": "Sahil Goel"
+    },
+    "STO-49838": {
+      "status": "Architecture Review",
+      "last_comment_id": 442085,
+      "assignee": "Vikram Varman"
+    },
+    "STO-50898": {
+      "status": "Dev In Progress",
+      "last_comment_id": null,
+      "assignee": "Vikram Varman"
+    },
+    "STO-49569": {
+      "status": "Done",
+      "last_comment_id": 443014,
+      "assignee": "Vikram Varman"
+    },
+    "STO-50909": {
+      "status": "Code Review",
+      "last_comment_id": null,
+      "assignee": "Apoorv Jain"
+    },
+    "STO-50911": {
+      "status": "Code Review",
+      "last_comment_id": null,
+      "assignee": "Apoorv Jain"
+    },
+    "STO-50913": {
+      "status": "Code Review",
+      "last_comment_id": null,
+      "assignee": "Apoorv Jain"
+    },
+    "STO-50410": {
+      "status": "Dev In Progress",
+      "last_comment_id": 444991,
+      "assignee": "Prathamesh Shivale"
+    },
+    "STO-44576": {
+      "status": "To Be Done",
+      "last_comment_id": 442638,
+      "assignee": "Kuldeep Jaiswal"
+    },
+    "STO-50980": {
+      "status": "Awaiting Client Response",
+      "last_comment_id": 444329,
+      "assignee": "Ravi Shankar Singh"
+    },
+    "STO-48049": {
+      "status": "Code Review",
+      "last_comment_id": 444042,
+      "assignee": "Raja Gopal"
+    },
+    "STO-50398": {
+      "status": "Code Review",
+      "last_comment_id": 444299,
+      "assignee": "Raja Gopal"
+    },
+    "STO-51122": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "ADITYA RAJEEV PATIL"
+    },
+    "STO-51041": {
+      "status": "To Be Done",
+      "last_comment_id": 444298,
+      "assignee": "Anilkumar Yadav"
+    },
+    "STO-51121": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Shyaram RK"
+    },
+    "STO-51119": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Shyaram RK"
+    },
+    "STO-49218": {
+      "status": "Architecture Review",
+      "last_comment_id": 437621,
+      "assignee": "Anurag Kumar"
+    },
+    "STO-51044": {
+      "status": "Dev In Progress",
+      "last_comment_id": 444364,
+      "assignee": "Ankit Chakraborty"
+    },
+    "STO-51110": {
+      "status": "To Be Done",
+      "last_comment_id": 444292,
+      "assignee": "Thiyagarajan Natarajan"
+    },
+    "STO-49662": {
+      "status": "To Be Done",
+      "last_comment_id": 444287,
+      "assignee": "Anilkumar Yadav"
+    },
+    "STO-48191": {
+      "status": "QA - In Progress",
+      "last_comment_id": 444309,
+      "assignee": "Sheetal Chourasia"
+    },
+    "STO-48958": {
+      "status": "Ready for ENGG Sprint",
+      "last_comment_id": 443227,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-47731": {
+      "status": "To Be Done",
+      "last_comment_id": 440583,
+      "assignee": "Shyaram RK"
+    },
+    "STO-51118": {
+      "status": "Awaiting Client Response",
+      "last_comment_id": null,
+      "assignee": "Siddharth Bansal"
+    },
+    "STO-51117": {
+      "status": "Awaiting Client Response",
+      "last_comment_id": null,
+      "assignee": "Siddharth Bansal"
+    },
+    "STO-50589": {
+      "status": "Done",
+      "last_comment_id": 444116,
+      "assignee": "sagar c s"
+    },
+    "STO-50837": {
+      "status": "Done",
+      "last_comment_id": 444272,
+      "assignee": "Baby Kumari"
+    },
+    "STO-47572": {
+      "status": "UAT",
+      "last_comment_id": 444271,
+      "assignee": "Shyaram RK"
+    },
+    "STO-51116": {
+      "status": "To Be Done",
+      "last_comment_id": 444263,
+      "assignee": "Dipankar Deb"
+    },
+    "STO-50964": {
+      "status": "Done",
+      "last_comment_id": null,
+      "assignee": "Raj"
+    },
+    "STO-50962": {
+      "status": "Done",
+      "last_comment_id": null,
+      "assignee": "Raj"
+    },
+    "STO-50965": {
+      "status": "Done",
+      "last_comment_id": null,
+      "assignee": "Raj"
+    },
+    "STO-51061": {
+      "status": "Code Review",
+      "last_comment_id": 443891,
+      "assignee": "Raja Gopal"
+    },
+    "STO-28879": {
+      "status": "Production Verification",
+      "last_comment_id": 444256,
+      "assignee": "Sushanth Kanchan"
+    },
+    "STO-38181": {
+      "status": "Code Review",
+      "last_comment_id": 444252,
+      "assignee": "Sandeep Kumbhar"
+    },
+    "STO-50967": {
+      "status": "Done",
+      "last_comment_id": null,
+      "assignee": "Raj"
+    },
+    "STO-50968": {
+      "status": "Done",
+      "last_comment_id": null,
+      "assignee": "Raj"
+    },
+    "STO-47943": {
+      "status": "Deployment - Pending",
+      "last_comment_id": 441495,
+      "assignee": "Shriprasad Gharat"
+    },
+    "STO-49526": {
+      "status": "Dev In Progress",
+      "last_comment_id": 442863,
+      "assignee": "Krish Joshi"
+    },
+    "STO-50128": {
+      "status": "Code Review",
+      "last_comment_id": 444243,
+      "assignee": "Shubham Matoliya"
+    },
+    "STO-51113": {
+      "status": "To Be Done",
+      "last_comment_id": 444426,
+      "assignee": "Thiyagarajan Natarajan"
+    },
+    "STO-50625": {
+      "status": "Dev In Progress",
+      "last_comment_id": 444240,
+      "assignee": "Harish Srinivasan"
+    },
+    "STO-50113": {
+      "status": "QA",
+      "last_comment_id": 436254,
+      "assignee": "Shubham Matoliya"
+    },
+    "STO-50686": {
+      "status": "QA",
+      "last_comment_id": null,
+      "assignee": "Shubham Matoliya"
+    },
+    "STO-50118": {
+      "status": "QA",
+      "last_comment_id": 436258,
+      "assignee": "Shubham Matoliya"
+    },
+    "STO-50119": {
+      "status": "QA",
+      "last_comment_id": null,
+      "assignee": "Shubham Matoliya"
+    },
+    "STO-50123": {
+      "status": "QA",
+      "last_comment_id": 443927,
+      "assignee": "Shubham Matoliya"
+    },
+    "STO-50973": {
+      "status": "Dev In Progress",
+      "last_comment_id": null,
+      "assignee": "Suresh Katikala"
+    },
+    "STO-50972": {
+      "status": "Done",
+      "last_comment_id": null,
+      "assignee": "Suresh Katikala"
+    },
+    "STO-50970": {
+      "status": "Done",
+      "last_comment_id": null,
+      "assignee": "Suresh Katikala"
+    },
+    "STO-50971": {
+      "status": "Done",
+      "last_comment_id": null,
+      "assignee": "Suresh Katikala"
+    },
+    "STO-51049": {
+      "status": "Dev In Progress",
+      "last_comment_id": 443926,
+      "assignee": "Dipankar Deb"
+    },
+    "STO-51050": {
+      "status": "Done",
+      "last_comment_id": 444064,
+      "assignee": "Baby Kumari"
+    },
+    "STO-51112": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Srivatsan Mohan"
+    },
+    "STO-51124": {
+      "status": "To Be Done",
+      "last_comment_id": 444306,
+      "assignee": "Sahil Goel"
+    },
+    "STO-49356": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-49364": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-49884": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Roshan"
+    },
+    "STO-50665": {
+      "status": "Awaiting Client Response",
+      "last_comment_id": 444319,
+      "assignee": "Srikanth Murali"
+    },
+    "STO-51125": {
+      "status": "To Be Done",
+      "last_comment_id": 444328,
+      "assignee": "Roshan"
+    },
+    "STO-50778": {
+      "status": "Dropped",
+      "last_comment_id": 444310,
+      "assignee": "Baby Kumari"
+    },
+    "STO-50671": {
+      "status": "Awaiting Client Response",
+      "last_comment_id": 444311,
+      "assignee": "Ramya CJ"
+    },
+    "STO-51127": {
+      "status": "Dev In Progress",
+      "last_comment_id": null,
+      "assignee": "Ashish Verma"
+    },
+    "STO-50746": {
+      "status": "Dev In Progress",
+      "last_comment_id": 444316,
+      "assignee": "Rishabh Kumar"
+    },
+    "STO-51126": {
+      "status": "Done",
+      "last_comment_id": null,
+      "assignee": "Prathamesh Shivale"
+    },
+    "STO-37511": {
+      "status": "UAT",
+      "last_comment_id": 444315,
+      "assignee": "ADITYA RAJEEV PATIL"
+    },
+    "STO-51130": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Anilkumar Yadav"
+    },
+    "STO-51129": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Anilkumar Yadav"
+    },
+    "STO-50673": {
+      "status": "To Be Done",
+      "last_comment_id": 444093,
+      "assignee": "Akash Anilkumar"
+    },
+    "STO-51132": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Shyaram RK"
+    },
+    "STO-51131": {
+      "status": "To Be Done",
+      "last_comment_id": 444326,
+      "assignee": "Sahil Goel"
+    },
+    "STO-51027": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Abhishek K"
+    },
+    "STO-51032": {
+      "status": "Awaiting Client Response",
+      "last_comment_id": 444423,
+      "assignee": "Srikanth Murali"
+    },
+    "STO-50681": {
+      "status": "Dev In Progress",
+      "last_comment_id": 441853,
+      "assignee": "Abhishek K"
+    },
+    "STO-51133": {
+      "status": "Awaiting Client Response",
+      "last_comment_id": 444401,
+      "assignee": "Ambika Sarawgi"
+    },
+    "STO-50845": {
+      "status": "Dev In Progress",
+      "last_comment_id": null,
+      "assignee": "Abhishek K"
+    },
+    "STO-50846": {
+      "status": "Dropped",
+      "last_comment_id": 442913,
+      "assignee": "Abhishek K"
+    },
+    "STO-50847": {
+      "status": "Dropped",
+      "last_comment_id": null,
+      "assignee": "Abhishek K"
+    },
+    "STO-49487": {
+      "status": "Deployment - Pending",
+      "last_comment_id": 444421,
+      "assignee": "Arun Prajapati"
+    },
+    "STO-50848": {
+      "status": "Dropped",
+      "last_comment_id": null,
+      "assignee": "Abhishek K"
+    },
+    "STO-51087": {
+      "status": "To Be Done",
+      "last_comment_id": 444334,
+      "assignee": "LINITH M"
+    },
+    "STO-50917": {
+      "status": "Awaiting Client Response",
+      "last_comment_id": 444358,
+      "assignee": "Jalaram Choudhary"
+    },
+    "STO-50711": {
+      "status": "To Be Done",
+      "last_comment_id": 444338,
+      "assignee": "Anurag Kumar"
+    },
+    "STO-48988": {
+      "status": "To Be Done",
+      "last_comment_id": 444346,
+      "assignee": "Dipankar Deb"
+    },
+    "STO-46777": {
+      "status": "Code Review",
+      "last_comment_id": 409516,
+      "assignee": "Vishisht Maroria"
+    },
+    "STO-50419": {
+      "status": "Code Review",
+      "last_comment_id": null,
+      "assignee": "Vishisht Maroria"
+    },
+    "STO-51134": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Shriprasad Gharat"
+    },
+    "STO-50905": {
+      "status": "Dev In Progress",
+      "last_comment_id": 444342,
+      "assignee": "Shyaram RK"
+    },
+    "STO-50707": {
+      "status": "To Be Done",
+      "last_comment_id": 444349,
+      "assignee": "Durga Dhyani"
+    },
+    "STO-51135": {
+      "status": "To Be Done",
+      "last_comment_id": 444351,
+      "assignee": "Aarthi"
+    },
+    "STO-50670": {
+      "status": "To Be Done",
+      "last_comment_id": 444348,
+      "assignee": "Durga Dhyani"
+    },
+    "STO-51081": {
+      "status": "To Be Done",
+      "last_comment_id": 444447,
+      "assignee": "Anilkumar Yadav"
+    },
+    "STO-50914": {
+      "status": "Done",
+      "last_comment_id": 444352,
+      "assignee": "LINITH M"
+    },
+    "STO-50709": {
+      "status": "To Be Done",
+      "last_comment_id": 444350,
+      "assignee": "Durga Dhyani"
+    },
+    "STO-51136": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Ananya Shenoy"
+    },
+    "STO-47159": {
+      "status": "Production Verification",
+      "last_comment_id": 444378,
+      "assignee": "Koshal Garg"
+    },
+    "STO-51137": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Siddharth Bansal"
+    },
+    "STO-47976": {
+      "status": "Awaiting Client Response",
+      "last_comment_id": 444405,
+      "assignee": "Srikanth Murali"
+    },
+    "STO-49219": {
+      "status": "Dropped",
+      "last_comment_id": 436756,
+      "assignee": "Ankit Chakraborty"
+    },
+    "STO-51138": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Anilkumar Yadav"
+    },
+    "STO-51034": {
+      "status": "Awaiting Client Response",
+      "last_comment_id": 444363,
+      "assignee": "Onaydatt Kinare"
+    },
+    "STO-51139": {
+      "status": "Dev In Progress",
+      "last_comment_id": null,
+      "assignee": "Ankit Chakraborty"
+    },
+    "STO-50330": {
+      "status": "To Be Done",
+      "last_comment_id": 444368,
+      "assignee": "Rishabh Kumar"
+    },
+    "STO-50976": {
+      "status": "Awaiting Client Response",
+      "last_comment_id": 444367,
+      "assignee": "Anilkumar Yadav"
+    },
+    "STO-48027": {
+      "status": "To Be Done",
+      "last_comment_id": 444372,
+      "assignee": "Jalaram Choudhary"
+    },
+    "STO-50376": {
+      "status": "Dev In Progress",
+      "last_comment_id": 444377,
+      "assignee": "Ashish Verma"
+    },
+    "STO-51141": {
+      "status": "To Be Done",
+      "last_comment_id": 444376,
+      "assignee": "Sahil Goel"
+    },
+    "STO-48828": {
+      "status": "Dropped",
+      "last_comment_id": 444381,
+      "assignee": "Shweta Jadhav"
+    },
+    "STO-51142": {
+      "status": "To Be Done",
+      "last_comment_id": 444380,
+      "assignee": "Sahil Goel"
+    },
+    "STO-51143": {
+      "status": "Awaiting Client Response",
+      "last_comment_id": 444410,
+      "assignee": "Ambika Sarawgi"
+    },
+    "STO-50975": {
+      "status": "To Be Done",
+      "last_comment_id": 444387,
+      "assignee": "Shashank H N"
+    },
+    "STO-44983": {
+      "status": "Dev In Progress",
+      "last_comment_id": 444386,
+      "assignee": "Vikram Varman"
+    },
+    "STO-51144": {
+      "status": "To Be Done",
+      "last_comment_id": 444389,
+      "assignee": "Sahil Goel"
+    },
+    "STO-50977": {
+      "status": "To Be Done",
+      "last_comment_id": 444388,
+      "assignee": "abhiram"
+    },
+    "STO-44996": {
+      "status": "QA - In Progress",
+      "last_comment_id": 439719,
+      "assignee": "Venkata Siva Sai"
+    },
+    "STO-51145": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Shyaram RK"
+    },
+    "STO-51075": {
+      "status": "Done",
+      "last_comment_id": 444398,
+      "assignee": "Baby Kumari"
+    },
+    "STO-50283": {
+      "status": "Done",
+      "last_comment_id": 444419,
+      "assignee": "Ankit Chakraborty"
+    },
+    "STO-49222": {
+      "status": "QA",
+      "last_comment_id": 434981,
+      "assignee": "Sachin"
+    },
+    "STO-29113": {
+      "status": "Architecture Review",
+      "last_comment_id": 418573,
+      "assignee": "Ankit Chakraborty"
+    },
+    "STO-50111": {
+      "status": "UT Testing",
+      "last_comment_id": null,
+      "assignee": "Ankit Chakraborty"
+    },
+    "STO-50660": {
+      "status": "UT Testing",
+      "last_comment_id": null,
+      "assignee": "Ankit Chakraborty"
+    },
+    "STO-50110": {
+      "status": "UT Testing",
+      "last_comment_id": null,
+      "assignee": "Ankit Chakraborty"
+    },
+    "STO-50108": {
+      "status": "UT Testing",
+      "last_comment_id": null,
+      "assignee": "Ankit Chakraborty"
+    },
+    "STO-50109": {
+      "status": "UT Testing",
+      "last_comment_id": null,
+      "assignee": "Ankit Chakraborty"
+    },
+    "STO-50038": {
+      "status": "UT Testing",
+      "last_comment_id": null,
+      "assignee": "Ankit Chakraborty"
+    },
+    "STO-50112": {
+      "status": "UT Testing",
+      "last_comment_id": null,
+      "assignee": "Ankit Chakraborty"
+    },
+    "STO-51146": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Shyaram RK"
+    },
+    "STO-50738": {
+      "status": "QA",
+      "last_comment_id": 444402,
+      "assignee": "Ravi Shankar Singh"
+    },
+    "STO-50882": {
+      "status": "Done",
+      "last_comment_id": null,
+      "assignee": "Ashish Verma"
+    },
+    "STO-50739": {
+      "status": "QA",
+      "last_comment_id": null,
+      "assignee": "Ravi Shankar Singh"
+    },
+    "STO-50878": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Vikram Varman"
+    },
+    "STO-50879": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Vikram Varman"
+    },
+    "STO-50880": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Vikram Varman"
+    },
+    "STO-50881": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Vikram Varman"
+    },
+    "STO-50737": {
+      "status": "Done",
+      "last_comment_id": 444403,
+      "assignee": "Ravi Shankar Singh"
+    },
+    "STO-51023": {
+      "status": "Done",
+      "last_comment_id": 443628,
+      "assignee": "Roshan"
+    },
+    "STO-47248": {
+      "status": "Dev In Progress",
+      "last_comment_id": 444412,
+      "assignee": "Sanskriti Gupta"
+    },
+    "STO-39097": {
+      "status": "To Be Done",
+      "last_comment_id": 442538,
+      "assignee": "Sanskriti Gupta"
+    },
+    "STO-51147": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Sanskriti Gupta"
+    },
+    "STO-50661": {
+      "status": "Done",
+      "last_comment_id": 444416,
+      "assignee": "Divye Chopra"
+    },
+    "STO-50070": {
+      "status": "Done",
+      "last_comment_id": 439733,
+      "assignee": "Sanskriti Gupta"
+    },
+    "STO-51094": {
+      "status": "Dropped",
+      "last_comment_id": 444414,
+      "assignee": "Dipankar Deb"
+    },
+    "STO-50499": {
+      "status": "Done",
+      "last_comment_id": null,
+      "assignee": "Sanskriti Gupta"
+    },
+    "STO-51148": {
+      "status": "To Be Done",
+      "last_comment_id": 444443,
+      "assignee": "Arun Prajapati"
+    },
+    "STO-49744": {
+      "status": "Dev In Progress",
+      "last_comment_id": 444451,
+      "assignee": "Srikanth Murali"
+    },
+    "STO-50522": {
+      "status": "Dev In Progress",
+      "last_comment_id": null,
+      "assignee": "Suresh Katikala"
+    },
+    "STO-51150": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Shashikant Singh"
+    },
+    "STO-49598": {
+      "status": "Done",
+      "last_comment_id": 437492,
+      "assignee": "Debosmita Paul"
+    },
+    "STO-50296": {
+      "status": "To Be Done",
+      "last_comment_id": 444434,
+      "assignee": "piyush"
+    },
+    "STO-36904": {
+      "status": "Code Review",
+      "last_comment_id": 444433,
+      "assignee": "Akash Anilkumar"
+    },
+    "STO-50696": {
+      "status": "To Be Done",
+      "last_comment_id": 444444,
+      "assignee": "seiona.n"
+    },
+    "STO-51152": {
+      "status": "Dropped",
+      "last_comment_id": null,
+      "assignee": "Baby Kumari"
+    },
+    "STO-51151": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Vikram Varman"
+    },
+    "STO-46948": {
+      "status": "UAT",
+      "last_comment_id": 444449,
+      "assignee": "Harish Srinivasan"
+    },
+    "STO-49346": {
+      "status": "Dev In Progress",
+      "last_comment_id": 444460,
+      "assignee": "Dipankar Deb"
+    },
+    "STO-50482": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Shyaram RK"
+    },
+    "STO-27515": {
+      "status": "To Be Done",
+      "last_comment_id": 443922,
+      "assignee": "Raj"
+    },
+    "STO-51029": {
+      "status": "Dev In Progress",
+      "last_comment_id": 445388,
+      "assignee": "Prathamesh Shivale"
+    },
+    "STO-50269": {
+      "status": "Ready for ENGG Sprint",
+      "last_comment_id": 442750,
+      "assignee": "Prathamesh Shivale"
+    },
+    "STO-49804": {
+      "status": "Ready for ENGG Sprint",
+      "last_comment_id": 443616,
+      "assignee": "Prathamesh Shivale"
+    },
+    "STO-49809": {
+      "status": "Ready for ENGG Sprint",
+      "last_comment_id": 443621,
+      "assignee": "Prathamesh Shivale"
+    },
+    "STO-50273": {
+      "status": "To Be Done",
+      "last_comment_id": 442752,
+      "assignee": "Prathamesh Shivale"
+    },
+    "STO-51176": {
+      "status": "To Be Done",
+      "last_comment_id": null,
+      "assignee": "Prathamesh Shivale"
+    },
+    "STO-51487": {
+      "status": "Dev In Progress",
+      "last_comment_id": 428882,
+      "assignee": "Prathamesh Shivale"
+    }
+  },
+  "last_poll_at": "2026-05-28T11:56:56.665845+00:00"
+}
