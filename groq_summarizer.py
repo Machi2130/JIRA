@@ -62,7 +62,7 @@ async def parse_nl_command(text: str, default_project_key: str, api_key: str, la
         client = _get_client(api_key)
         logger.info("parse_nl_command: calling Groq for NL normalization")
         response = await client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="qwen/qwen3.6-27b",
             messages=[
                 {"role": "system", "content": _COMMAND_SYSTEM},
                 {"role": "user", "content": json.dumps(user_payload)},
@@ -97,7 +97,7 @@ async def summarize_ticket(description: str, comments: list[str], api_key: str) 
         client = _get_client(api_key)
         logger.info("summarize_ticket: calling Groq API (model=llama-3.3-70b-versatile)")
         response = await client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="qwen/qwen3.6-27b",
             messages=[
                 {"role": "system", "content": _SYSTEM},
                 {"role": "user", "content": user_content},
