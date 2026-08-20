@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import asyncio
 import logging
 import os
 import threading
@@ -174,7 +175,12 @@ def build_report_payload() -> dict:
 
 def _run_bot_polling(bot: JiraTelegramBot) -> None:
     logger.info("Telegram bot polling thread starting")
-    bot.run_polling()
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    try:
+        bot.run_polling()
+    finally:
+        loop.close()
 
 
 def ensure_runtime_started() -> None:
