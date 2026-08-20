@@ -833,4 +833,5 @@ class JiraTelegramBot:
         )
 
     def run_polling(self):
-        self._app.run_polling()
+        # Signal handlers can only be registered from the main interpreter thread.
+        self._app.run_polling(stop_signals=None)
