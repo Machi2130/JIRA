@@ -48,8 +48,25 @@ def _get_client(api_key: str) -> AsyncGroq:
     return _client
 
 
+_JIRA_KEYWORDS = {
+    "ticket", "comment", "status", "assign", "transition", "fix", "bug",
+    "implement", "refactor", "search", "create", "due", "priority", "sprint",
+    "sto", "report", "review", "deploy", "log", "work", "watch", "label",
+}
+
+
+def _has_jira_signal(text: str) -> bool:
+    words = text.lower().split()
+    return any(w in _JIRA_KEYWORDS for w in words) or any(
+        w[:-1].isdigit() or w.isdigit() for w in words
+    )
+
+
 async def parse_nl_command(text: str, default_project_key: str, api_key: str, last_ticket_key: str = "") -> dict:
     if not api_key:
+        return {"action": "unknown"}
+
+    if not _has_jira_signal(text) and not last_ticket_key:
         return {"action": "unknown"}
 
     user_payload = {
@@ -62,7 +79,7 @@ async def parse_nl_command(text: str, default_project_key: str, api_key: str, la
         client = _get_client(api_key)
         logger.info("parse_nl_command: calling Groq for NL normalization")
         response = await client.chat.completions.create(
-            model="qwen/qwen3.6-27b",
+            model="groq/compound-mini",
             messages=[
                 {"role": "system", "content": _COMMAND_SYSTEM},
                 {"role": "user", "content": json.dumps(user_payload)},
@@ -95,9 +112,9 @@ async def summarize_ticket(description: str, comments: list[str], api_key: str) 
 
     try:
         client = _get_client(api_key)
-        logger.info("summarize_ticket: calling Groq API (model=qwen/qwen3.6-27b)")
+        logger.info("summarize_ticket: calling Groq API")
         response = await client.chat.completions.create(
-            model="qwen/qwen3.6-27b",
+            model="groq/compound-mini",
             messages=[
                 {"role": "system", "content": _SYSTEM},
                 {"role": "user", "content": user_content},
