@@ -291,7 +291,7 @@ def telegram_webhook():
     try:
         future.result(timeout=30)
     except Exception as e:
-        logger.error("telegram-webhook: failed to process update — %s", e)
+        logger.error("telegram-webhook: failed to process update — %s: %s", type(e).__name__, e, exc_info=True)
     return jsonify({"ok": True}), 200
 
 
