@@ -214,10 +214,23 @@ def ensure_runtime_started() -> None:
 
         use_webhook = os.getenv("TELEGRAM_WEBHOOK_URL", "").strip()
         if use_webhook:
-            # Webhook mode — Telegram pushes updates to /telegram-webhook.
-            # No polling thread needed; no Conflict errors, works with multiple workers.
-            asyncio.run(bot._app.initialize())
-            logger.info("Telegram bot in webhook mode — polling disabled")
+            # Webhook mode: run a dedicated event loop in a background thread.
+            # Flask routes submit updates via run_coroutine_threadsafe — no asyncio.run() per request.
+            bot_loop = asyncio.new_event_loop()
+
+            async def _start_bot():
+                await bot._app.initialize()
+                await bot._app.start()
+
+            bot_loop.run_until_complete(_start_bot())
+
+            def _run_loop():
+                bot_loop.run_forever()
+
+            loop_thread = threading.Thread(target=_run_loop, daemon=True, name="bot-event-loop")
+            loop_thread.start()
+            _runtime_state["bot_loop"] = bot_loop
+            logger.info("Telegram bot in webhook mode — event loop running in background thread")
         else:
             bot_thread = threading.Thread(
                 target=_run_bot_polling,
@@ -267,14 +280,18 @@ def refresh_report():
 def telegram_webhook():
     ensure_runtime_started()
     bot = _runtime_state.get("bot")
-    if not bot:
+    bot_loop = _runtime_state.get("bot_loop")
+    if not bot or not bot_loop:
         return jsonify({"ok": False}), 503
 
-    import json
     from telegram import Update
     payload = request.get_json(silent=True) or {}
     update = Update.de_json(payload, bot._app.bot)
-    asyncio.run(bot._app.process_update(update))
+    future = asyncio.run_coroutine_threadsafe(bot._app.process_update(update), bot_loop)
+    try:
+        future.result(timeout=30)
+    except Exception as e:
+        logger.error("telegram-webhook: failed to process update — %s", e)
     return jsonify({"ok": True}), 200
 
 
