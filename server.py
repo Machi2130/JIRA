@@ -212,21 +212,28 @@ def ensure_runtime_started() -> None:
         else:
             logger.info("Scheduler not started - running webhook-based Jira updates only")
 
-        bot_thread = threading.Thread(
-            target=_run_bot_polling,
-            args=(bot,),
-            daemon=True,
-            name="telegram-bot-polling",
-        )
-        bot_thread.start()
-        logger.info("Telegram bot polling started in background thread")
+        use_webhook = os.getenv("TELEGRAM_WEBHOOK_URL", "").strip()
+        if use_webhook:
+            # Webhook mode — Telegram pushes updates to /telegram-webhook.
+            # No polling thread needed; no Conflict errors, works with multiple workers.
+            asyncio.run(bot._app.initialize())
+            logger.info("Telegram bot in webhook mode — polling disabled")
+        else:
+            bot_thread = threading.Thread(
+                target=_run_bot_polling,
+                args=(bot,),
+                daemon=True,
+                name="telegram-bot-polling",
+            )
+            bot_thread.start()
+            logger.info("Telegram bot polling started in background thread")
+            _runtime_state["bot_thread"] = bot_thread
 
         _runtime_state["config"] = config
         _runtime_state["jira"] = jira
         _runtime_state["poller"] = poller
         _runtime_state["bot"] = bot
         _runtime_state["scheduler"] = scheduler
-        _runtime_state["bot_thread"] = bot_thread
         _runtime_started = True
 
 
@@ -254,6 +261,21 @@ def refresh_report():
     except Exception as exc:
         logger.exception("report refresh failed")
         return jsonify({"ok": False, "error": str(exc)}), 500
+
+
+@app.post("/telegram-webhook")
+def telegram_webhook():
+    ensure_runtime_started()
+    bot = _runtime_state.get("bot")
+    if not bot:
+        return jsonify({"ok": False}), 503
+
+    import json
+    from telegram import Update
+    payload = request.get_json(silent=True) or {}
+    update = Update.de_json(payload, bot._app.bot)
+    asyncio.run(bot._app.process_update(update))
+    return jsonify({"ok": True}), 200
 
 
 @app.post("/jira-webhook")
