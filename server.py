@@ -214,13 +214,16 @@ def ensure_runtime_started() -> None:
 
         use_webhook = os.getenv("TELEGRAM_WEBHOOK_URL", "").strip()
         if use_webhook:
-            # Webhook mode: run a dedicated event loop in a background thread.
-            # Flask routes submit updates via run_coroutine_threadsafe — no asyncio.run() per request.
+            # Webhook mode: dedicated event loop in background thread.
+            # Updates go via update_queue (correct PTB v20+ webhook pattern).
             bot_loop = asyncio.new_event_loop()
+            webhook_url = f"{use_webhook.rstrip('/')}/telegram-webhook"
 
             async def _start_bot():
                 await bot._app.initialize()
                 await bot._app.start()
+                await bot._app.bot.set_webhook(webhook_url)
+                logger.info("Webhook registered: %s", webhook_url)
 
             bot_loop.run_until_complete(_start_bot())
 
@@ -287,11 +290,11 @@ def telegram_webhook():
     from telegram import Update
     payload = request.get_json(silent=True) or {}
     update = Update.de_json(payload, bot._app.bot)
-    future = asyncio.run_coroutine_threadsafe(bot._app.process_update(update), bot_loop)
+    future = asyncio.run_coroutine_threadsafe(bot._app.update_queue.put(update), bot_loop)
     try:
-        future.result(timeout=30)
+        future.result(timeout=5)
     except Exception as e:
-        logger.error("telegram-webhook: failed to process update — %s: %s", type(e).__name__, e, exc_info=True)
+        logger.error("telegram-webhook: failed to queue update — %s: %s", type(e).__name__, e, exc_info=True)
     return jsonify({"ok": True}), 200
 
 
