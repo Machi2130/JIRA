@@ -2,7 +2,6 @@ import asyncio
 import logging
 import os
 import tempfile
-import instaloader
 from telegram import Update, InputMediaPhoto
 from telegram.ext import CommandHandler, ContextTypes
 
@@ -15,6 +14,7 @@ def _shortcode(url: str) -> str:
 
 
 def _download_sync(shortcode: str, tmpdir: str) -> list[str]:
+    import instaloader  # heavy — lazy load only when /ig is actually used
     L = instaloader.Instaloader(
         download_videos=False,
         download_video_thumbnails=False,
